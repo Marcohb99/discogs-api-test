@@ -2,7 +2,9 @@ package com.mhb.discogsapitest.Release.Application.UseCase;
 
 import com.mhb.discogsapitest.Release.Domain.Release;
 import com.mhb.discogsapitest.Release.Domain.ReleaseRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GetReleaseById {
     private final ReleaseRepository repository;
 

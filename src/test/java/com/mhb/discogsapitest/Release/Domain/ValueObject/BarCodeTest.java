@@ -2,10 +2,12 @@ package com.mhb.discogsapitest.Release.Domain.ValueObject;
 
 import com.mhb.discogsapitest.Shared.Domain.Exception.InvalidBarCode;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@SpringBootTest
 public class BarCodeTest {
 
     @Test

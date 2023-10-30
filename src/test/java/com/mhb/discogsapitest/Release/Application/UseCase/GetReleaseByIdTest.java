@@ -6,10 +6,12 @@ import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Title;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 public class GetReleaseByIdTest {
 
     @Test
