@@ -1,6 +1,7 @@
 services:
   mysql:
     image: 'mysql:latest'
+    platform: linux/amd64
     environment:
       - 'MYSQL_DATABASE=mydatabase'
       - 'MYSQL_PASSWORD=secret'
