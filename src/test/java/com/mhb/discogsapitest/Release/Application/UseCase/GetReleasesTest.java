@@ -1,7 +1,7 @@
 package com.mhb.discogsapitest.Release.Application.UseCase;
 
 import com.mhb.discogsapitest.Release.Domain.Release;
-import com.mhb.discogsapitest.Release.Domain.ReleaseMotherObject;
+import com.mhb.discogsapitest.Release.Domain.ReleaseCollectionMotherObject;
 import com.mhb.discogsapitest.Release.Domain.ReleaseRepository;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Title;
@@ -9,24 +9,25 @@ import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class GetReleaseByIdTest {
+public class GetReleasesTest {
 
     @Test
-    public void whenValidIdThenReturnRelease() {
+    public void testHappyPath() {
         // given
-        int validId = 1;
-        Release expected = ReleaseMotherObject.createRandom(validId);
         ReleaseRepository repositoryMock = mock(ReleaseRepository.class);
-        when(repositoryMock.byId(validId)).thenReturn(expected);
+        List<Release> expected = ReleaseCollectionMotherObject.createRandom(10);
+        when(repositoryMock.all()).thenReturn(expected);
 
-        GetReleaseById sut = new GetReleaseById(repositoryMock);
+        GetReleases sut = new GetReleases(repositoryMock);
 
         // when
-        Release result = sut.execute(validId);
+        List<Release> result = sut.execute();
 
         // then
         assert result.equals(expected);
