@@ -8,13 +8,12 @@ import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class InMemoryReleaseRepository implements ReleaseRepository {
-    private final String SAMPLE_TITLE = "no_title";
-    private final String SAMPLE_BARCODE = "0000000000000";
     private final int MAX_ELEMS = 10;
 
     @Override
@@ -28,32 +27,27 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
 
     @Override
     public List<Release> all() {
-        return getReleaseList(new Title(this.SAMPLE_TITLE), new BarCode(this.SAMPLE_BARCODE));
+        return getReleaseList(null, null);
     }
 
-    private List<Release> getReleaseList(Title title, BarCode barCode) {
-        boolean randomizeTitle = title.getValue().equals(this.SAMPLE_TITLE);
-        boolean randomizeBarCode = barCode.getValue().equals(this.SAMPLE_BARCODE);
-
-        System.out.println("randomizeTitle: " + randomizeTitle);
-        System.out.println("randomizeBarCode: " + randomizeBarCode);
-
+    private List<Release> getReleaseList(@Nullable Title title, @Nullable BarCode barCode) {
         List<Release> result = new ArrayList<>();
 
         for (int i = 0; i < MAX_ELEMS; i++) {
             result.add(
                     new Release(
                             new SequentialId(i + 1),
-                            randomizeTitle ? new Title(RandomStringUtils.randomAlphabetic(10)) : title,
-                            randomizeBarCode ? new BarCode(RandomStringUtils.randomNumeric(13)) : barCode
+                            title == null ? new Title(RandomStringUtils.randomAlphabetic(10)) : title,
+                            barCode == null ? new BarCode(RandomStringUtils.randomNumeric(13)) : barCode
                     )
             );
+            System.out.println(result.get(i).toString());
         }
         return result;
     }
 
     @Override
     public List<Release> byBarCode(BarCode barCode) {
-        return this.getReleaseList(new Title(this.SAMPLE_TITLE), barCode);
+        return this.getReleaseList(null, barCode);
     }
 }

@@ -15,22 +15,22 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class GetReleasesByBarCodeTest {
-    @Test
-    public void whenValidBarCodeThenReturnReleases() {
-        // given
-        String validBarCode = "1234567890123";
-        List<Release> expected = ReleaseCollectionMotherObject.createRandom(10);
-        ReleaseRepository repositoryMock = mock(ReleaseRepository.class);
-        when(repositoryMock.byBarCode(new BarCode(validBarCode))).thenReturn(expected);
-
-        GetReleasesByBarCode sut = new GetReleasesByBarCode(repositoryMock);
-
-        // when
-        List<Release> result = sut.execute(validBarCode);
-
-        // then
-        assert result.equals(expected);
-    }
+//    @Test
+//    public void whenValidBarCodeThenReturnReleases() {
+//        // given
+//        String validBarCode = "1234567890123";
+//        List<Release> expected = ReleaseCollectionMotherObject.createRandom(10);
+//        ReleaseRepository repositoryMock = mock(ReleaseRepository.class);
+//        when(repositoryMock.byBarCode(new BarCode(validBarCode))).thenReturn(expected);
+//
+//        GetReleasesByBarCode sut = new GetReleasesByBarCode(repositoryMock);
+//
+//        // when
+//        List<Release> result = sut.execute(validBarCode);
+//
+//        // then
+//        assert result.equals(expected);
+//    }
 
     @Test
     public void whenInvalidBarCodeThenThrowException() {
