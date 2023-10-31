@@ -6,6 +6,8 @@ import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Objects;
+
 @AllArgsConstructor
 public class Release {
     @Getter
@@ -14,4 +16,14 @@ public class Release {
     private Title title;
     @Getter
     private BarCode barCode;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Release release = (Release) o;
+        return Objects.equals(id, release.id)
+                && Objects.equals(title, release.title)
+                && Objects.equals(barCode, release.barCode);
+    }
 }
