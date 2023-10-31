@@ -6,3 +6,9 @@ test-class:
 
 run:
 	./mvnw spring-boot:run
+
+build:
+	./mvnw clean package
+
+install:
+	./mvnw clean install
