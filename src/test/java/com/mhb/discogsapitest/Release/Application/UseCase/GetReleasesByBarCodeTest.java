@@ -8,29 +8,33 @@ import com.mhb.discogsapitest.Release.Domain.ReleaseRepository;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
 import com.mhb.discogsapitest.Shared.Domain.Exception.InvalidBarCode;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class GetReleasesByBarCodeTest {
-//    @Test
-//    public void whenValidBarCodeThenReturnReleases() {
-//        // given
-//        String validBarCode = "1234567890123";
-//        List<Release> expected = ReleaseCollectionMotherObject.createRandom(10);
-//        ReleaseRepository repositoryMock = mock(ReleaseRepository.class);
-//        when(repositoryMock.byBarCode(new BarCode(validBarCode))).thenReturn(expected);
-//
-//        GetReleasesByBarCode sut = new GetReleasesByBarCode(repositoryMock);
-//
-//        // when
-//        List<Release> result = sut.execute(validBarCode);
-//
-//        // then
-//        assert result.equals(expected);
-//    }
+    @Test
+    public void whenValidBarCodeThenReturnReleases() {
+        // given
+        String barCodeStr = "1234567890123";
+        BarCode barCode = new BarCode(barCodeStr);
+
+        ReleaseRepository releaseRepositoryMock = mock(ReleaseRepository.class);
+        List<Release> expected = ReleaseCollectionMotherObject.createRandom(10);
+        when(releaseRepositoryMock.byBarCode(barCode)).thenReturn(expected);
+
+        GetReleasesByBarCode sut = new GetReleasesByBarCode(releaseRepositoryMock);
+
+        // when
+        List<Release> actual = sut.execute(barCodeStr);
+
+        // then
+        assert actual.equals(expected);
+    }
 
     @Test
     public void whenInvalidBarCodeThenThrowException() {

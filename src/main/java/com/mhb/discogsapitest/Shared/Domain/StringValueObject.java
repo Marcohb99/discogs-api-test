@@ -9,4 +9,9 @@ public class StringValueObject {
     protected StringValueObject(String value) {
         this.value = value;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.value.equals(((StringValueObject) obj).value);
+    }
 }

@@ -9,4 +9,9 @@ public class IntegerValueObject {
     protected IntegerValueObject(int value) {
         this.value = value;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.getValue() == ((IntegerValueObject) obj).getValue();
+    }
 }
