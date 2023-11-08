@@ -39,4 +39,9 @@ public class ReleaseController {
         return getReleasesByBarCode.execute(barCode);
     }
 
+    @GetMapping("/healthcheck")
+    public String healthCheck() {
+        return "OK";
+    }
+
 }
