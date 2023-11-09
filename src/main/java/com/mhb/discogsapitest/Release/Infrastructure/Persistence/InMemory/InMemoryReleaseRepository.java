@@ -15,7 +15,7 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
     @Override
     public Release byId(SequentialId id) {
         return releases.stream()
-                .filter(release -> release.getId().getValue() == id.getValue())
+                .filter(release -> release.getId().getValue().equals(id.getValue()))
                 .findFirst()
                 .orElse(null);
     }

@@ -25,7 +25,7 @@ public class ReleaseController {
     private GetReleasesByBarCode getReleasesByBarCode;
 
     @GetMapping("/releases/{id}")
-    public Release getReleaseById(@PathVariable int id) {
+    public Release getReleaseById(@PathVariable Integer id) {
         return this.getReleaseById.execute(id);
     }
 

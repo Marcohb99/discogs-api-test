@@ -5,7 +5,7 @@ public class InvalidSequentialId extends RuntimeException {
         super(format);
     }
 
-    public static InvalidSequentialId fromValue(int value) {
+    public static InvalidSequentialId fromValue(Integer value) {
         return new InvalidSequentialId(
                 String.format("The sequential id <%s> must be greater than zero", value)
         );

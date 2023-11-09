@@ -13,7 +13,7 @@ public class GetReleaseById {
     @Getter
     private final ReleaseRepository repository;
 
-    public Release execute(int id) {
+    public Release execute(Integer id) {
         return this.repository.byId(new SequentialId(id));
     }
 }

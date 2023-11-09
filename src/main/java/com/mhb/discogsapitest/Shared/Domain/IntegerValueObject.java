@@ -4,14 +4,15 @@ import lombok.Getter;
 
 public class IntegerValueObject {
     @Getter
-    private final int value;
+    private final Integer value;
 
-    protected IntegerValueObject(int value) {
+    protected IntegerValueObject(Integer value) {
         this.value = value;
     }
 
     @Override
     public boolean equals(Object obj) {
-        return this.getValue() == ((IntegerValueObject) obj).getValue();
+        return obj instanceof IntegerValueObject
+                && ((IntegerValueObject) obj).value.equals(this.value);
     }
 }

@@ -12,6 +12,7 @@ public class StringValueObject {
 
     @Override
     public boolean equals(Object obj) {
-        return this.value.equals(((StringValueObject) obj).value);
+        return obj instanceof StringValueObject &&
+                this.value.equals(((StringValueObject) obj).value);
     }
 }
