@@ -1,3 +1,9 @@
+## 0.4.0 (2023-11-10)
+
+### Feat
+
+- **album**: add album entity and some other good refactors
+
 ## 0.3.0 (2023-11-10)
 
 ### Feat
