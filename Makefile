@@ -12,3 +12,6 @@ build:
 
 install:
 	./mvnw clean install
+
+test-unit:
+	./mvnw test -Dtest=UnitTestSuite

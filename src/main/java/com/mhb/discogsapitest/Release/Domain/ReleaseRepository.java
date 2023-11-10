@@ -1,7 +1,6 @@
 package com.mhb.discogsapitest.Release.Domain;
 
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
-import com.mhb.discogsapitest.Release.Domain.ValueObject.Title;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 
 import java.util.List;

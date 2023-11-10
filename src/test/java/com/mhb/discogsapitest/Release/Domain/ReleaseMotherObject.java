@@ -1,7 +1,7 @@
 package com.mhb.discogsapitest.Release.Domain;
 
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
-import com.mhb.discogsapitest.Release.Domain.ValueObject.Title;
+import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -15,7 +15,7 @@ public class ReleaseMotherObject {
         }
         return new Release(
                 new SequentialId(id),
-                new Title(RandomStringUtils.randomAlphabetic(10)),
+                new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 new BarCode(RandomStringUtils.randomNumeric(13))
         );
     }
