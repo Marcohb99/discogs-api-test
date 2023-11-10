@@ -1,3 +1,10 @@
+## 0.5.0 (2023-11-10)
+
+### Feat
+
+- **artist**: add all related entities and VOs related to artist info
+- **Release**: add catalog number
+
 ## 0.4.0 (2023-11-10)
 
 ### Feat
