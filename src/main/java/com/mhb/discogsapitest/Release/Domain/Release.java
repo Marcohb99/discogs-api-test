@@ -36,6 +36,11 @@ public class Release {
     @Getter
     private Map<NotEmptyString,List<Credit>> credits;
 
+    @Getter
+    private NotEmptyString label;
+
+    @Getter
+    private NotEmptyString country;
 
     @Override
     public boolean equals(Object o) {
@@ -49,6 +54,8 @@ public class Release {
                 && Objects.equals(trackList, release.trackList)
                 && Objects.equals(genres, release.genres)
                 && Objects.equals(releaseDate, release.releaseDate)
-                && Objects.equals(credits, release.credits);
+                && Objects.equals(credits, release.credits)
+                && Objects.equals(label, release.label)
+                && Objects.equals(country, release.country);
     }
 }

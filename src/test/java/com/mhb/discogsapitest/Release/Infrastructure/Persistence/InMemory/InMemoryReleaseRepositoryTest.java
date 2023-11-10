@@ -44,7 +44,9 @@ public class InMemoryReleaseRepositoryTest {
                         List.of(Credit.PHOTOGRAPHY_BY),
                         new NotEmptyString("person_3"),
                         List.of(Credit.EXECUTIVE_PRODUCER)
-                )
+                ),
+                new NotEmptyString("label_1"),
+                new NotEmptyString("country_1")
         );
         InMemoryReleaseRepository sut = new InMemoryReleaseRepository();
 
@@ -86,7 +88,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_1"),
+                        new NotEmptyString("country_1")
                 ),
                 new Release(
                         new SequentialId(3),
@@ -111,7 +115,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_3"),
+                        new NotEmptyString("country_3")
                 ),
                 new Release(
                         new SequentialId(5),
@@ -136,7 +142,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_5"),
+                        new NotEmptyString("country_5")
                 )
         );
         InMemoryReleaseRepository sut = new InMemoryReleaseRepository();
@@ -178,7 +186,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_1"),
+                        new NotEmptyString("country_1")
                 ),
                 new Release(
                         new SequentialId(2),
@@ -197,7 +207,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.LYRICS_BY, Credit.MUSIC_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_2"),
+                        new NotEmptyString("country_2")
                 ),
                 new Release(
                         new SequentialId(3),
@@ -222,7 +234,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_3"),
+                        new NotEmptyString("country_3")
                 ),
                 new Release(
                         new SequentialId(4),
@@ -247,7 +261,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_4"),
+                        new NotEmptyString("country_4")
                 ),
                 new Release(
                         new SequentialId(5),
@@ -272,7 +288,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_5"),
+                        new NotEmptyString("country_5")
                 ),
                 new Release(
                         new SequentialId(6),
@@ -297,7 +315,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_6"),
+                        new NotEmptyString("country_6")
                 ),
                 new Release(
                         new SequentialId(7),
@@ -322,7 +342,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_7"),
+                        new NotEmptyString("country_7")
                 ),
                 new Release(
                         new SequentialId(8),
@@ -345,7 +367,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.LYRICS_BY, Credit.MUSIC_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_8"),
+                        new NotEmptyString("country_8")
                 ),
                 new Release(
                         new SequentialId(9),
@@ -370,7 +394,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_9"),
+                        new NotEmptyString("country_9")
                 ),
                 new Release(
                         new SequentialId(10),
@@ -389,7 +415,9 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.LYRICS_BY, Credit.MUSIC_BY),
                                 new NotEmptyString("person_3"),
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        new NotEmptyString("label_10"),
+                        new NotEmptyString("country_10")
                 )
         );
         InMemoryReleaseRepository sut = new InMemoryReleaseRepository();

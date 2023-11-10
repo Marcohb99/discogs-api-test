@@ -39,7 +39,9 @@ public class ReleaseMotherObject {
                 trackList,
                 genres,
                 new Date(),
-                defaultCredits()
+                defaultCredits(),
+                new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
+                new NotEmptyString(RandomStringUtils.randomAlphabetic(10))
         );
     }
 
