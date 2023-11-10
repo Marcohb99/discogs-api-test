@@ -18,7 +18,7 @@ public class GetReleaseByIdTest {
         // given
         int validId = 1;
         SequentialId id = new SequentialId(validId);
-        Release expected = ReleaseMotherObject.createRandom(validId);
+        Release expected = ReleaseMotherObject.createRandom(validId, null);
         ReleaseRepository repositoryMock = mock(ReleaseRepository.class);
         when(repositoryMock.byId(id)).thenReturn(expected);
 
