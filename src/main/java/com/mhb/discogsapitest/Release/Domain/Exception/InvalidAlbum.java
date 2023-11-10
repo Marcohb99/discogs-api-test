@@ -14,4 +14,8 @@ public class InvalidAlbum extends DomainException {
     public static InvalidAlbum emptyGenres() {
         return new InvalidAlbum("Album genre list cannot be empty");
     }
+
+    public static InvalidAlbum emptyArtists() {
+        return new InvalidAlbum("Album artist list cannot be empty");
+    }
 }

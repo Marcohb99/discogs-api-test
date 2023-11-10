@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Domain;
 
+import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Release.Domain.Exception.InvalidAlbum;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
@@ -22,14 +23,14 @@ public class Album {
     private final List<NotEmptyString> genres;
 
     @Getter
-    private final NotEmptyString artistName;
+    private final List<BasicArtistInfo> artists;
 
     public Album(
             SequentialId id,
             NotEmptyString title,
             List<NotEmptyString> trackList,
             List<NotEmptyString> genres,
-            NotEmptyString artistName
+            List<BasicArtistInfo> artists
     ) {
         this.id = id;
         this.title = title;
@@ -41,7 +42,10 @@ public class Album {
             throw InvalidAlbum.emptyGenres();
         }
         this.genres = genres;
-        this.artistName = artistName;
+        if (artists.size() == 0) {
+            throw InvalidAlbum.emptyArtists();
+        }
+        this.artists = artists;
     }
 
     @Override
@@ -51,8 +55,8 @@ public class Album {
         Album album = (Album) o;
         return Objects.equals(id, album.id)
                 && Objects.equals(title, album.title)
-                && Objects.equals(artistName, album.artistName)
                 && Objects.equals(trackList, album.trackList)
-                && Objects.equals(genres, album.genres);
+                && Objects.equals(genres, album.genres)
+                && Objects.equals(artists, album.artists);
     }
 }

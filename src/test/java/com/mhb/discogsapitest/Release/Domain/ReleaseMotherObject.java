@@ -22,7 +22,6 @@ public class ReleaseMotherObject {
         for (int i = 0; i < DEFAULT_QUANTITY; i++) {
             formats.add(new NotEmptyString(RandomStringUtils.randomAlphabetic(10)));
         }
-
         return new Release(
                 new SequentialId(id),
                 new BarCode(RandomStringUtils.randomNumeric(13)),

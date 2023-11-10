@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Infrastructure.Persistence.InMemory;
 
+import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Release.Domain.Album;
 import com.mhb.discogsapitest.Release.Domain.Release;
 import com.mhb.discogsapitest.Release.Domain.ReleaseRepository;
@@ -67,7 +68,12 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     new NotEmptyString("genre_2"),
                                     new NotEmptyString("genre_3")
                             ),
-                            new NotEmptyString("artist_1")
+                            List.of(
+                                    new BasicArtistInfo(
+                                            new SequentialId(1),
+                                            new NotEmptyString("artist_1")
+                                    )
+                            )
                     ),
                     List.of(new NotEmptyString("format_1")),
                     null
@@ -102,7 +108,12 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     new NotEmptyString("genre_2"),
                                     new NotEmptyString("genre_3")
                             ),
-                            new NotEmptyString("artist_2")
+                            List.of(
+                                    new BasicArtistInfo(
+                                            new SequentialId(2),
+                                            new NotEmptyString("artist_2")
+                                    )
+                            )
                     ),
                     List.of(new NotEmptyString("format_2")),
                     "catalog_number_2"
@@ -137,7 +148,12 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     new NotEmptyString("genre_2"),
                                     new NotEmptyString("genre_3")
                             ),
-                            new NotEmptyString("artist_3")
+                            List.of(
+                                    new BasicArtistInfo(
+                                            new SequentialId(3),
+                                            new NotEmptyString("artist_3")
+                                    )
+                            )
                     ),
                     List.of(new NotEmptyString("format_3")),
                     "catalog_number_3"
@@ -172,7 +188,12 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     new NotEmptyString("genre_2"),
                                     new NotEmptyString("genre_3")
                             ),
-                            new NotEmptyString("artist_4")
+                            List.of(
+                                    new BasicArtistInfo(
+                                            new SequentialId(4),
+                                            new NotEmptyString("artist_4")
+                                    )
+                            )
                     ),
                     List.of(new NotEmptyString("format_4")),
                     "catalog_number_4"
@@ -207,7 +228,12 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     new NotEmptyString("genre_2"),
                                     new NotEmptyString("genre_3")
                             ),
-                            new NotEmptyString("artist_5")
+                            List.of(
+                                    new BasicArtistInfo(
+                                            new SequentialId(5),
+                                            new NotEmptyString("artist_5")
+                                    )
+                            )
                     ),
                     List.of(new NotEmptyString("format_5")),
                     "catalog_number_5"

@@ -1,5 +1,7 @@
 package com.mhb.discogsapitest.Release.Domain;
 
+import com.mhb.discogsapitest.Artist.Domain.BasicArtistInfoMotherObject;
+import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -23,8 +25,10 @@ public class AlbumMotherObject {
         }
         // genres
         List<NotEmptyString> genres = new ArrayList<>();
+        List<BasicArtistInfo> artists = new ArrayList<>();
         for (int i = 0; i < DEFAULT_QUANTITY; i++) {
             genres.add(new NotEmptyString(RandomStringUtils.randomAlphabetic(10)));
+            artists.add(BasicArtistInfoMotherObject.createRandom(i + 1));
         }
 
         return new Album(
@@ -32,7 +36,7 @@ public class AlbumMotherObject {
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 trackList,
                 genres,
-                new NotEmptyString(RandomStringUtils.randomAlphabetic(10))
+                artists
         );
     }
 }
