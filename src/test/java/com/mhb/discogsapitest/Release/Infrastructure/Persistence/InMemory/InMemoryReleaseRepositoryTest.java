@@ -51,7 +51,8 @@ public class InMemoryReleaseRepositoryTest {
                         ),
                         new NotEmptyString("artist_1")
                 ),
-                List.of(new NotEmptyString("format_1"))
+                List.of(new NotEmptyString("format_1")),
+                null
         );
         InMemoryReleaseRepository sut = new InMemoryReleaseRepository();
 
@@ -99,7 +100,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_1")
                         ),
-                        List.of(new NotEmptyString("format_1"))
+                        List.of(new NotEmptyString("format_1")),
+                        null
                 ),
                 new Release(
                         new SequentialId(3),
@@ -133,7 +135,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_3")
                         ),
-                        List.of(new NotEmptyString("format_3"))
+                        List.of(new NotEmptyString("format_3")),
+                        "catalog_number_3"
                 )
         );
         InMemoryReleaseRepository sut = new InMemoryReleaseRepository();
@@ -181,7 +184,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_1")
                         ),
-                        List.of(new NotEmptyString("format_1"))
+                        List.of(new NotEmptyString("format_1")),
+                        null
                 ),
                 new Release(
                         new SequentialId(2),
@@ -215,7 +219,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_2")
                         ),
-                        List.of(new NotEmptyString("format_2"))
+                        List.of(new NotEmptyString("format_2")),
+                        "catalog_number_2"
                 ),
                 new Release(
                         new SequentialId(3),
@@ -249,7 +254,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_3")
                         ),
-                        List.of(new NotEmptyString("format_3"))
+                        List.of(new NotEmptyString("format_3")),
+                        "catalog_number_3"
                 ),
                 new Release(
                         new SequentialId(4),
@@ -283,7 +289,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_4")
                         ),
-                        List.of(new NotEmptyString("format_4"))
+                        List.of(new NotEmptyString("format_4")),
+                        "catalog_number_4"
                 ),
                 new Release(
                         new SequentialId(5),
@@ -317,7 +324,8 @@ public class InMemoryReleaseRepositoryTest {
                                 ),
                                 new NotEmptyString("artist_5")
                         ),
-                        List.of(new NotEmptyString("format_5"))
+                        List.of(new NotEmptyString("format_5")),
+                        "catalog_number_5"
                 )
         );
         InMemoryReleaseRepository sut = new InMemoryReleaseRepository();

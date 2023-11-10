@@ -31,7 +31,8 @@ public class ReleaseMotherObject {
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 AlbumMotherObject.createRandom(id),
-                formats
+                formats,
+                RandomStringUtils.randomAlphabetic(10)
         );
     }
 

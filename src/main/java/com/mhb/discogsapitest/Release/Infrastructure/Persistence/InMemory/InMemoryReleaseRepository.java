@@ -38,9 +38,9 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
 
     private static final List<Release> releases = List.of(
             new Release(
-                new SequentialId(1),
-                new BarCode("1234567890123"),
-                new Date(),
+                    new SequentialId(1),
+                    new BarCode("1234567890123"),
+                    new Date(),
                     Map.of(
                             new NotEmptyString("person_1"),
                             List.of(
@@ -54,22 +54,23 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                     ),
                     new NotEmptyString("label_1"),
                     new NotEmptyString("country_1"),
-                new Album(
-                        new SequentialId(1),
-                        new NotEmptyString("title_1"),
-                        List.of(
-                                new NotEmptyString("track_1"),
-                                new NotEmptyString("track_2"),
-                                new NotEmptyString("track_3")
-                        ),
-                        List.of(
-                                new NotEmptyString("genre_1"),
-                                new NotEmptyString("genre_2"),
-                                new NotEmptyString("genre_3")
-                        ),
-                        new NotEmptyString("artist_1")
-                ),
-                List.of(new NotEmptyString("format_1"))
+                    new Album(
+                            new SequentialId(1),
+                            new NotEmptyString("title_1"),
+                            List.of(
+                                    new NotEmptyString("track_1"),
+                                    new NotEmptyString("track_2"),
+                                    new NotEmptyString("track_3")
+                            ),
+                            List.of(
+                                    new NotEmptyString("genre_1"),
+                                    new NotEmptyString("genre_2"),
+                                    new NotEmptyString("genre_3")
+                            ),
+                            new NotEmptyString("artist_1")
+                    ),
+                    List.of(new NotEmptyString("format_1")),
+                    null
             ),
             new Release(
                     new SequentialId(2),
@@ -103,7 +104,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                             ),
                             new NotEmptyString("artist_2")
                     ),
-                    List.of(new NotEmptyString("format_2"))
+                    List.of(new NotEmptyString("format_2")),
+                    "catalog_number_2"
             ),
             new Release(
                     new SequentialId(3),
@@ -137,7 +139,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                             ),
                             new NotEmptyString("artist_3")
                     ),
-                    List.of(new NotEmptyString("format_3"))
+                    List.of(new NotEmptyString("format_3")),
+                    "catalog_number_3"
             ),
             new Release(
                     new SequentialId(4),
@@ -171,7 +174,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                             ),
                             new NotEmptyString("artist_4")
                     ),
-                    List.of(new NotEmptyString("format_4"))
+                    List.of(new NotEmptyString("format_4")),
+                    "catalog_number_4"
             ),
             new Release(
                     new SequentialId(5),
@@ -205,7 +209,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                             ),
                             new NotEmptyString("artist_5")
                     ),
-                    List.of(new NotEmptyString("format_5"))
+                    List.of(new NotEmptyString("format_5")),
+                    "catalog_number_5"
             )
     );
 }

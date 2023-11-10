@@ -5,12 +5,10 @@ import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
+import io.micrometer.common.lang.Nullable;
 import lombok.Getter;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Release {
     @Getter
@@ -37,6 +35,9 @@ public class Release {
     @Getter
     private final List<NotEmptyString> formatName;
 
+    @Getter
+    private String catalogNumber;
+
     public Release(
             SequentialId id,
             BarCode barCode,
@@ -45,7 +46,8 @@ public class Release {
             NotEmptyString label,
             NotEmptyString country,
             Album album,
-            List<NotEmptyString> formatName
+            List<NotEmptyString> formatName,
+            @Nullable String catalogNumber
     ) {
         this.id = id;
         this.barCode = barCode;
@@ -58,6 +60,10 @@ public class Release {
             throw InvalidFormatName.empty();
         }
         this.formatName = formatName;
+        if (catalogNumber == null) {
+            // see for example https://www.discogs.com/release/15734227-Glass-Animals-Dreamland
+            this.catalogNumber = "none";
+        }
     }
 
     @Override
