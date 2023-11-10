@@ -1,6 +1,6 @@
 package com.mhb.discogsapitest.Shared.Domain.Exception;
 
-public class InvalidSequentialId extends RuntimeException {
+public class InvalidSequentialId extends DomainException {
     private InvalidSequentialId(String format) {
         super(format);
     }

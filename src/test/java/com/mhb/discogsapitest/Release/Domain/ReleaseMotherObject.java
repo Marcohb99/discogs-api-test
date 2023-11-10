@@ -10,38 +10,28 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 public class ReleaseMotherObject {
-    private final static int DEFAULT_GENRE_QUANTITY = 5;
+    private final static int DEFAULT_QUANTITY = 5;
 
-    public static Release createRandom(Integer id, @Nullable Integer quantity) {
+    public static Release createRandom(@Nullable Integer id) {
         Random random = new Random();
-        if (id == 0) {
+        if (id == null) {
             id = random.nextInt(1, 1000);
         }
-        if (quantity == null) {
-            quantity = random.nextInt(1, 10);
-        }
-        // trackList
-        List<NotEmptyString> trackList = new ArrayList<>();
-        for (int i = 0; i < quantity; i++) {
-            trackList.add(new NotEmptyString(RandomStringUtils.randomAlphabetic(10)));
-        }
-        // genres
-        List<NotEmptyString> genres = new ArrayList<>();
-        for (int i = 0; i < DEFAULT_GENRE_QUANTITY; i++) {
-            genres.add(new NotEmptyString(RandomStringUtils.randomAlphabetic(10)));
+
+        List<NotEmptyString> formats = new ArrayList<>();
+        for (int i = 0; i < DEFAULT_QUANTITY; i++) {
+            formats.add(new NotEmptyString(RandomStringUtils.randomAlphabetic(10)));
         }
 
         return new Release(
                 new SequentialId(id),
-                new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 new BarCode(RandomStringUtils.randomNumeric(13)),
-                new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
-                trackList,
-                genres,
                 new Date(),
                 defaultCredits(),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
-                new NotEmptyString(RandomStringUtils.randomAlphabetic(10))
+                new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
+                AlbumMotherObject.createRandom(id),
+                formats
         );
     }
 

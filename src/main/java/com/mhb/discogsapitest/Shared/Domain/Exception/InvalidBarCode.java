@@ -1,6 +1,6 @@
 package com.mhb.discogsapitest.Shared.Domain.Exception;
 
-public class InvalidBarCode extends RuntimeException {
+public class InvalidBarCode extends DomainException {
     public InvalidBarCode(String value) {
         super(String.format("The bar code <%s> is invalid", value));
     }
