@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Domain;
 
+import com.mhb.discogsapitest.Album.Domain.Album;
 import com.mhb.discogsapitest.Release.Domain.Exception.InvalidFormatName;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;

@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Domain;
 
+import com.mhb.discogsapitest.Album.Domain.Album;
 import com.mhb.discogsapitest.Artist.Domain.BasicArtistInfoMotherObject;
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;

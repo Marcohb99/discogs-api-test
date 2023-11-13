@@ -1,4 +1,4 @@
-package com.mhb.discogsapitest.Release.Domain;
+package com.mhb.discogsapitest.Album.Domain;
 
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Release.Domain.Exception.InvalidAlbum;

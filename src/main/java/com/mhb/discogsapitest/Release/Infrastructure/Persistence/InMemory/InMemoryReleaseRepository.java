@@ -1,7 +1,7 @@
 package com.mhb.discogsapitest.Release.Infrastructure.Persistence.InMemory;
 
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
-import com.mhb.discogsapitest.Release.Domain.Album;
+import com.mhb.discogsapitest.Album.Domain.Album;
 import com.mhb.discogsapitest.Release.Domain.Release;
 import com.mhb.discogsapitest.Release.Domain.ReleaseRepository;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
