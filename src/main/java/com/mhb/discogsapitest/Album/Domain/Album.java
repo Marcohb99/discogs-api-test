@@ -2,11 +2,13 @@ package com.mhb.discogsapitest.Album.Domain;
 
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Release.Domain.Exception.InvalidAlbum;
+import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class Album {
@@ -25,12 +27,16 @@ public class Album {
     @Getter
     private final List<BasicArtistInfo> artists;
 
+    @Getter
+    private final Map<NotEmptyString, List<Credit>> credits;
+
     public Album(
             SequentialId id,
             NotEmptyString title,
             List<NotEmptyString> trackList,
             List<NotEmptyString> genres,
-            List<BasicArtistInfo> artists
+            List<BasicArtistInfo> artists,
+            Map<NotEmptyString, List<Credit>> credits
     ) {
         this.id = id;
         this.title = title;
@@ -46,6 +52,7 @@ public class Album {
             throw InvalidAlbum.emptyArtists();
         }
         this.artists = artists;
+        this.credits = credits;
     }
 
     @Override
@@ -57,6 +64,7 @@ public class Album {
                 && Objects.equals(title, album.title)
                 && Objects.equals(trackList, album.trackList)
                 && Objects.equals(genres, album.genres)
-                && Objects.equals(artists, album.artists);
+                && Objects.equals(artists, album.artists)
+                && Objects.equals(credits, album.credits);
     }
 }

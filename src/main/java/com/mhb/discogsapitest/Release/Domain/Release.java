@@ -22,9 +22,6 @@ public class Release {
     private final Date releaseDate;
 
     @Getter
-    private final Map<NotEmptyString, List<Credit>> credits;
-
-    @Getter
     private final NotEmptyString label;
 
     @Getter
@@ -43,7 +40,6 @@ public class Release {
             SequentialId id,
             BarCode barCode,
             Date releaseDate,
-            Map<NotEmptyString,List<Credit>> credits,
             NotEmptyString label,
             NotEmptyString country,
             Album album,
@@ -53,7 +49,6 @@ public class Release {
         this.id = id;
         this.barCode = barCode;
         this.releaseDate = releaseDate;
-        this.credits = credits;
         this.label = label;
         this.country = country;
         this.album = album;
@@ -75,7 +70,6 @@ public class Release {
         return Objects.equals(id, release.id)
                 && Objects.equals(barCode, release.barCode)
                 && Objects.equals(releaseDate, release.releaseDate)
-                && Objects.equals(credits, release.credits)
                 && Objects.equals(label, release.label)
                 && Objects.equals(country, release.country)
                 && Objects.equals(album, release.album)

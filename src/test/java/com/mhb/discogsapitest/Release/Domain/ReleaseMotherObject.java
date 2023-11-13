@@ -1,7 +1,6 @@
 package com.mhb.discogsapitest.Release.Domain;
 
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
-import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -26,25 +25,11 @@ public class ReleaseMotherObject {
                 new SequentialId(id),
                 new BarCode(RandomStringUtils.randomNumeric(13)),
                 new Date(),
-                defaultCredits(),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 AlbumMotherObject.createRandom(id),
                 formats,
                 RandomStringUtils.randomAlphabetic(10)
         );
-    }
-
-    private static Map<NotEmptyString, List<Credit>> defaultCredits() {
-        Map<NotEmptyString, List<Credit>> credits = new HashMap<>();
-        credits.put(
-                new NotEmptyString("artist_1"),
-                List.of(Credit.LYRICS_BY, Credit.MUSIC_BY)
-        );
-        credits.put(
-                new NotEmptyString("prod_1"),
-                List.of(Credit.EXECUTIVE_PRODUCER, Credit.MASTERED_BY)
-        );
-        return credits;
     }
 }
