@@ -1,3 +1,10 @@
+## 0.5.1 (2023-11-13)
+
+### Refactor
+
+- **album**: move credits to album
+- **album**: create album context and move album entity there
+
 ## 0.5.0 (2023-11-10)
 
 ### Feat
