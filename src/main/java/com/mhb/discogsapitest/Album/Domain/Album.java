@@ -5,29 +5,26 @@ import com.mhb.discogsapitest.Release.Domain.Exception.InvalidAlbum;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+@Getter
+@EqualsAndHashCode
 public class Album {
-    @Getter
     private final SequentialId id;
 
-    @Getter
     private final NotEmptyString title;
 
-    @Getter
     private final List<NotEmptyString> trackList;
 
-    @Getter
     private final List<NotEmptyString> genres;
 
-    @Getter
     private final List<BasicArtistInfo> artists;
 
-    @Getter
     private final Map<NotEmptyString, List<Credit>> credits;
 
     public Album(
@@ -53,18 +50,5 @@ public class Album {
         }
         this.artists = artists;
         this.credits = credits;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Album album = (Album) o;
-        return Objects.equals(id, album.id)
-                && Objects.equals(title, album.title)
-                && Objects.equals(trackList, album.trackList)
-                && Objects.equals(genres, album.genres)
-                && Objects.equals(artists, album.artists)
-                && Objects.equals(credits, album.credits);
     }
 }

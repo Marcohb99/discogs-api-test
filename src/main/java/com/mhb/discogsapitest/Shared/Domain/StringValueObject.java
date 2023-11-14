@@ -1,18 +1,12 @@
 package com.mhb.discogsapitest.Shared.Domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor
+@EqualsAndHashCode
 public class StringValueObject {
-    @Getter
     private final String value;
-
-    protected StringValueObject(String value) {
-        this.value = value;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return obj instanceof StringValueObject &&
-                this.value.equals(((StringValueObject) obj).value);
-    }
 }

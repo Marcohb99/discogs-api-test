@@ -3,17 +3,18 @@ package com.mhb.discogsapitest.Artist.Domain;
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+@Getter
+@EqualsAndHashCode
 public class IndividualArtist extends Artist {
-    @Getter
     private final Map<SequentialId, NotEmptyString> bands;
 
-    @Getter
     private final String realName;
 
     public IndividualArtist(

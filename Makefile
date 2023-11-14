@@ -11,7 +11,7 @@ build:
 	./mvnw clean package
 
 install:
-	./mvnw clean install
+	./mvnw clean install -DskipTests
 
 test-unit:
 	./mvnw test -Dtest=UnitTestSuite

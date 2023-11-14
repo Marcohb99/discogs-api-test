@@ -7,33 +7,28 @@ import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import io.micrometer.common.lang.Nullable;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.*;
 
+@Getter
+@EqualsAndHashCode
 public class Release {
-    @Getter
     private final SequentialId id;
 
-    @Getter
     private final BarCode barCode;
 
-    @Getter
     private final Date releaseDate;
 
-    @Getter
     private final NotEmptyString label;
 
-    @Getter
     private final NotEmptyString country;
 
-    @Getter
     private final Album album;
 
-    @Getter
     private final List<NotEmptyString> formatName;
 
-    @Getter
     private String catalogNumber;
 
     public Release(
@@ -60,19 +55,5 @@ public class Release {
             // see for example https://www.discogs.com/release/15734227-Glass-Animals-Dreamland
             this.catalogNumber = "none";
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Release release = (Release) o;
-        return Objects.equals(id, release.id)
-                && Objects.equals(barCode, release.barCode)
-                && Objects.equals(releaseDate, release.releaseDate)
-                && Objects.equals(label, release.label)
-                && Objects.equals(country, release.country)
-                && Objects.equals(album, release.album)
-                && Objects.equals(formatName, release.formatName);
     }
 }
