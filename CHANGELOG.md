@@ -1,3 +1,9 @@
+## 0.5.2 (2023-11-14)
+
+### Refactor
+
+- **general**: general improvements and code clean
+
 ## 0.5.1 (2023-11-13)
 
 ### Refactor
