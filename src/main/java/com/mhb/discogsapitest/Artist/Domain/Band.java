@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-@EqualsAndHashCode
 public class Band extends Artist{
     private final Map<SequentialId, NotEmptyString> members;
 
@@ -25,5 +24,11 @@ public class Band extends Artist{
     ) {
         super(basicArtistInfo, description, aliases, nameVariations, sites);
         this.members = members;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Band band)) return false;
+        return super.equals(obj) && members.equals(band.members);
     }
 }

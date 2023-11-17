@@ -23,7 +23,7 @@ public class InMemoryReleaseRepositoryTest {
         Release expected = new Release(
                 new SequentialId(1),
                 new BarCode("1234567890123"),
-                new Date(),
+                new Date(1234567890L),
                 new NotEmptyString("label_1"),
                 new NotEmptyString("country_1"),
                 new Album(
@@ -46,14 +46,14 @@ public class InMemoryReleaseRepositoryTest {
                                 )
                         ),
                         Map.of(
-                                new NotEmptyString("person_1"),
+                                "person_1",
                                 List.of(
                                         Credit.LYRICS_BY,
                                         Credit.MUSIC_BY
                                 ),
-                                new NotEmptyString("person_2"),
+                                "person_2",
                                 List.of(Credit.PHOTOGRAPHY_BY),
-                                new NotEmptyString("person_3"),
+                                "person_3",
                                 List.of(Credit.EXECUTIVE_PRODUCER)
                         )
                 ),
@@ -77,7 +77,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(1),
                         new BarCode("1234567890123"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_1"),
                         new NotEmptyString("country_1"),
                         new Album(
@@ -100,14 +100,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),
@@ -117,7 +117,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(3),
                         new BarCode("1234567890123"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_3"),
                         new NotEmptyString("country_3"),
                         new Album(
@@ -140,14 +140,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),
@@ -171,7 +171,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(1),
                         new BarCode("1234567890123"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_1"),
                         new NotEmptyString("country_1"),
                         new Album(
@@ -194,14 +194,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),
@@ -211,7 +211,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(2),
                         new BarCode("1234567890124"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_2"),
                         new NotEmptyString("country_2"),
                         new Album(
@@ -234,14 +234,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),
@@ -251,7 +251,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(3),
                         new BarCode("1234567890123"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_3"),
                         new NotEmptyString("country_3"),
                         new Album(
@@ -274,14 +274,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),
@@ -291,7 +291,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(4),
                         new BarCode("1234567890126"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_4"),
                         new NotEmptyString("country_4"),
                         new Album(
@@ -314,14 +314,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),
@@ -331,7 +331,7 @@ public class InMemoryReleaseRepositoryTest {
                 new Release(
                         new SequentialId(5),
                         new BarCode("1234567890127"),
-                        new Date(),
+                        new Date(1234567890L),
                         new NotEmptyString("label_5"),
                         new NotEmptyString("country_5"),
                         new Album(
@@ -354,14 +354,14 @@ public class InMemoryReleaseRepositoryTest {
                                         )
                                 ),
                                 Map.of(
-                                        new NotEmptyString("person_1"),
+                                        "person_1",
                                         List.of(
                                                 Credit.LYRICS_BY,
                                                 Credit.MUSIC_BY
                                         ),
-                                        new NotEmptyString("person_2"),
+                                        "person_2",
                                         List.of(Credit.PHOTOGRAPHY_BY),
-                                        new NotEmptyString("person_3"),
+                                        "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
                                 )
                         ),

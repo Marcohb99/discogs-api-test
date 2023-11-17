@@ -5,15 +5,12 @@ import com.mhb.discogsapitest.Release.Domain.Exception.InvalidAlbum;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Getter
-@EqualsAndHashCode
 public class Album {
     private final SequentialId id;
 
@@ -25,7 +22,7 @@ public class Album {
 
     private final List<BasicArtistInfo> artists;
 
-    private final Map<NotEmptyString, List<Credit>> credits;
+    private final Map<String, List<Credit>> credits;
 
     public Album(
             SequentialId id,
@@ -33,7 +30,7 @@ public class Album {
             List<NotEmptyString> trackList,
             List<NotEmptyString> genres,
             List<BasicArtistInfo> artists,
-            Map<NotEmptyString, List<Credit>> credits
+            Map<String, List<Credit>> credits
     ) {
         this.id = id;
         this.title = title;
@@ -49,6 +46,23 @@ public class Album {
             throw InvalidAlbum.emptyArtists();
         }
         this.artists = artists;
+        if(credits.keySet().stream().anyMatch(key -> key.length() == 0 || key.isBlank())) {
+            throw InvalidAlbum.invalidCredits();
+        };
         this.credits = credits;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Album album)) return false;
+
+        if (album.credits.size() != credits.size()) return false;
+
+        return id.equals(album.id)
+                && title.equals(album.title)
+                && trackList.equals(album.trackList)
+                && genres.equals(album.genres)
+                && artists.equals(album.artists)
+                && credits.equals(album.credits);
     }
 }

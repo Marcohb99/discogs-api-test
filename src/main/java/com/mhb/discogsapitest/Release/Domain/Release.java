@@ -13,7 +13,6 @@ import lombok.Getter;
 import java.util.*;
 
 @Getter
-@EqualsAndHashCode
 public class Release {
     private final SequentialId id;
 
@@ -55,5 +54,21 @@ public class Release {
             // see for example https://www.discogs.com/release/15734227-Glass-Animals-Dreamland
             this.catalogNumber = "none";
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Release release)) return false;
+
+        System.out.println("Album " + album.equals(release.album));
+
+        return id.equals(release.id)
+                && barCode.equals(release.barCode)
+                && releaseDate.equals(release.releaseDate)
+                && label.equals(release.label)
+                && country.equals(release.country)
+                && album.equals(release.album)
+                && formatName.equals(release.formatName)
+                && Objects.equals(release.catalogNumber, catalogNumber);
     }
 }

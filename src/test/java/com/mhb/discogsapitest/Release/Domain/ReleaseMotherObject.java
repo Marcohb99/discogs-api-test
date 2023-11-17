@@ -6,6 +6,10 @@ import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.annotation.Nullable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ReleaseMotherObject {
@@ -21,10 +25,11 @@ public class ReleaseMotherObject {
         for (int i = 0; i < DEFAULT_QUANTITY; i++) {
             formats.add(new NotEmptyString(RandomStringUtils.randomAlphabetic(10)));
         }
+
         return new Release(
                 new SequentialId(id),
                 new BarCode(RandomStringUtils.randomNumeric(13)),
-                new Date(),
+                new Date(1234567890L),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 AlbumMotherObject.createRandom(id),

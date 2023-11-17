@@ -13,7 +13,6 @@ import java.util.Map;
 
 @Getter
 @AllArgsConstructor
-@EqualsAndHashCode
 public abstract class Artist {
     private final BasicArtistInfo basicArtistInfo;
 
@@ -24,4 +23,14 @@ public abstract class Artist {
     private final Map<SequentialId, NotEmptyString> nameVariations;
 
     private final List<URL> sites;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Artist artist)) return false;
+        return basicArtistInfo.equals(artist.basicArtistInfo)
+                && description.equals(artist.description)
+                && aliases.equals(artist.aliases)
+                && nameVariations.equals(artist.nameVariations)
+                && sites.equals(artist.sites);
+    }
 }

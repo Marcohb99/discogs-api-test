@@ -41,14 +41,14 @@ public class AlbumMotherObject {
         );
     }
 
-    private static Map<NotEmptyString, List<Credit>> defaultCredits() {
-        Map<NotEmptyString, List<Credit>> credits = new HashMap<>();
+    private static Map<String, List<Credit>> defaultCredits() {
+        Map<String, List<Credit>> credits = new HashMap<>();
         credits.put(
-                new NotEmptyString("artist_1"),
+                "artist_1",
                 List.of(Credit.LYRICS_BY, Credit.MUSIC_BY)
         );
         credits.put(
-                new NotEmptyString("prod_1"),
+                "prod_1",
                 List.of(Credit.EXECUTIVE_PRODUCER, Credit.MASTERED_BY)
         );
         return credits;

@@ -18,4 +18,8 @@ public class InvalidAlbum extends DomainException {
     public static InvalidAlbum emptyArtists() {
         return new InvalidAlbum("Album artist list cannot be empty");
     }
+
+    public static InvalidAlbum invalidCredits() {
+        return new InvalidAlbum("Album credits cannot be empty");
+    }
 }

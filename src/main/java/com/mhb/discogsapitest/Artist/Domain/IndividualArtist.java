@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-@EqualsAndHashCode
 public class IndividualArtist extends Artist {
     private final Map<SequentialId, NotEmptyString> bands;
 
@@ -29,5 +28,13 @@ public class IndividualArtist extends Artist {
         super(basicArtistInfo, description, aliases, nameVariations, sites);
         this.bands = bands;
         this.realName = realName;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof IndividualArtist individualArtist)) return false;
+        return super.equals(obj)
+                && bands.equals(individualArtist.bands)
+                && realName.equals(individualArtist.realName);
     }
 }

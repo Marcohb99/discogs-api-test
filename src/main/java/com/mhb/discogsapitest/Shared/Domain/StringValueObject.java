@@ -6,7 +6,12 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-@EqualsAndHashCode
 public class StringValueObject {
     private final String value;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof StringValueObject stringValueObject)) return false;
+        return value.equals(stringValueObject.value);
+    }
 }

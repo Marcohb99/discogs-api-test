@@ -9,4 +9,10 @@ public class SequentialId extends IntegerValueObject {
             throw InvalidSequentialId.fromValue(value);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof SequentialId sequentialId)) return false;
+        return getValue().equals(sequentialId.getValue());
+    }
 }
