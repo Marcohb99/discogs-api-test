@@ -41,6 +41,12 @@ Run tests with ``make test``
 
 ## Endpoints
 
+### Release
+
+- ``GET /releases``: returns all the releases.
+- ``GET /releases/{id}``: returns the release with the given id.
+- ``GET /releases/scan/{barCode}``: returns the release with the given bar code (simulates the bar code scan feature).ç
+
 ## Developing Standards
 ### Commitizen
 As you can see, this repository has a [cz.json](cz.json) to indicate the current tag. To follow this conventions,
