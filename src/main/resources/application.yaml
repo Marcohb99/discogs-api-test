@@ -1,0 +1,16 @@
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  packagesToScan: com.mhb.discogsapitest.Release.Infrastructure.Http.Controllers
+  pathsToMatch: /
+
+server:
+  port: 8083
+
+spring:
+  cloud:
+    gcp:
+      project-id: fc-bof-acq-sbx-rev1
+      credentials:
+        location: file:src/main/resources/config/credentials.json
