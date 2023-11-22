@@ -1,3 +1,9 @@
+## 0.7.0 (2023-11-22)
+
+### Feat
+
+- **artists**: add implementation to get artists releases by artist id
+
 ## 0.6.0 (2023-11-22)
 
 ### Feat
