@@ -1,3 +1,10 @@
+## 0.6.0 (2023-11-22)
+
+### Feat
+
+- **artist**: add implementation for artist by id endpoint
+- **wip**: sketch endpoint to get artist by id
+
 ## 0.5.2 (2023-11-14)
 
 ### Refactor
