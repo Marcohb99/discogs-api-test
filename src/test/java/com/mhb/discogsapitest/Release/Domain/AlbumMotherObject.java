@@ -1,6 +1,7 @@
 package com.mhb.discogsapitest.Release.Domain;
 
 import com.mhb.discogsapitest.Album.Domain.Album;
+import com.mhb.discogsapitest.Album.Domain.AlbumType;
 import com.mhb.discogsapitest.Artist.Domain.BasicArtistInfoMotherObject;
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
@@ -13,10 +14,16 @@ import java.util.*;
 
 public class AlbumMotherObject {
     private final static int DEFAULT_QUANTITY = 5;
-    public static Album createRandom(@Nullable Integer id) {
+    public static Album createRandom(@Nullable Integer id, @Nullable AlbumType albumType) {
         Random random = new Random();
         if (id == null) {
             id = random.nextInt(1, 1000);
+        }
+        if (albumType == null) {
+            albumType = id % 2 == 0 ? AlbumType.ALBUM : AlbumType.SINGLE;
+            if (id < 500) {
+                albumType = AlbumType.EP;
+            }
         }
         // trackList
         List<NotEmptyString> trackList = new ArrayList<>();
@@ -37,7 +44,8 @@ public class AlbumMotherObject {
                 trackList,
                 genres,
                 artists,
-                defaultCredits()
+                defaultCredits(),
+                albumType
         );
     }
 

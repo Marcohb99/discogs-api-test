@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Infrastructure.Persistence.InMemory;
 
+import com.mhb.discogsapitest.Album.Domain.AlbumType;
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Album.Domain.Album;
 import com.mhb.discogsapitest.Release.Domain.Release;
@@ -35,6 +36,17 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
         return releases.stream()
                 .filter(release -> release.getBarCode().getValue().equals(barCode.getValue()))
                 .toList();
+    }
+
+    @Override
+    public List<Release> byArtistId(SequentialId artistId) {
+        return releases.stream()
+                .filter(
+                        release -> release.getAlbum().getArtists().stream()
+                        .anyMatch(
+                                artist -> artist.id().getValue().equals(artistId.getValue())
+                        )
+                ).toList();
     }
 
     private static final List<Release> releases = List.of(
@@ -73,7 +85,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     List.of(Credit.PHOTOGRAPHY_BY),
                                     "person_3",
                                     List.of(Credit.EXECUTIVE_PRODUCER)
-                            )
+                            ),
+                            AlbumType.ALBUM
                     ),
                     List.of(new NotEmptyString("format_1")),
                     null
@@ -113,7 +126,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     List.of(Credit.PHOTOGRAPHY_BY),
                                     "person_3",
                                     List.of(Credit.EXECUTIVE_PRODUCER)
-                            )
+                            ),
+                            AlbumType.ALBUM
                     ),
                     List.of(new NotEmptyString("format_2")),
                     "catalog_number_2"
@@ -153,7 +167,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     List.of(Credit.PHOTOGRAPHY_BY),
                                     "person_3",
                                     List.of(Credit.EXECUTIVE_PRODUCER)
-                            )
+                            ),
+                            AlbumType.ALBUM
                     ),
                     List.of(new NotEmptyString("format_3")),
                     "catalog_number_3"
@@ -193,7 +208,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     List.of(Credit.PHOTOGRAPHY_BY),
                                     "person_3",
                                     List.of(Credit.EXECUTIVE_PRODUCER)
-                            )
+                            ),
+                            AlbumType.ALBUM
                     ),
                     List.of(new NotEmptyString("format_4")),
                     "catalog_number_4"
@@ -233,7 +249,8 @@ public class InMemoryReleaseRepository implements ReleaseRepository {
                                     List.of(Credit.PHOTOGRAPHY_BY),
                                     "person_3",
                                     List.of(Credit.EXECUTIVE_PRODUCER)
-                            )
+                            ),
+                            AlbumType.ALBUM
                     ),
                     List.of(new NotEmptyString("format_5")),
                     "catalog_number_5"

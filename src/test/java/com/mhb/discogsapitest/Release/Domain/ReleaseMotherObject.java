@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Domain;
 
+import com.mhb.discogsapitest.Album.Domain.AlbumType;
 import com.mhb.discogsapitest.Release.Domain.ValueObject.BarCode;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
@@ -15,7 +16,7 @@ import java.util.*;
 public class ReleaseMotherObject {
     private final static int DEFAULT_QUANTITY = 5;
 
-    public static Release createRandom(@Nullable Integer id) {
+    public static Release createRandom(@Nullable Integer id, @Nullable AlbumType albumType) {
         Random random = new Random();
         if (id == null) {
             id = random.nextInt(1, 1000);
@@ -32,7 +33,7 @@ public class ReleaseMotherObject {
                 new Date(1234567890L),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
                 new NotEmptyString(RandomStringUtils.randomAlphabetic(10)),
-                AlbumMotherObject.createRandom(id),
+                AlbumMotherObject.createRandom(id, albumType),
                 formats,
                 RandomStringUtils.randomAlphabetic(10)
         );
