@@ -6,24 +6,26 @@ import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import javax.annotation.Nullable;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Getter
 public class IndividualArtist extends Artist {
-    private final Map<SequentialId, NotEmptyString> bands;
+    private final @Nullable Map<Integer, NotEmptyString> bands;
 
-    private final String realName;
+    private final NotEmptyString realName;
 
     public IndividualArtist(
             BasicArtistInfo basicArtistInfo,
             NotEmptyString description,
-            Map<SequentialId, NotEmptyString> aliases,
-            Map<SequentialId, NotEmptyString> nameVariations,
+            Map<Integer, NotEmptyString> aliases,
+            Map<Integer, NotEmptyString> nameVariations,
             List<URL> sites,
-            Map<SequentialId, NotEmptyString> bands,
-            String realName
+            NotEmptyString realName,
+            @Nullable Map<Integer, NotEmptyString> bands
     ) {
         super(basicArtistInfo, description, aliases, nameVariations, sites);
         this.bands = bands;
@@ -33,8 +35,9 @@ public class IndividualArtist extends Artist {
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof IndividualArtist individualArtist)) return false;
+        boolean bandsAreEqual = Objects.equals(bands, individualArtist.bands);
         return super.equals(obj)
-                && bands.equals(individualArtist.bands)
+                && bandsAreEqual
                 && realName.equals(individualArtist.realName);
     }
 }
