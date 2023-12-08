@@ -1,3 +1,13 @@
+## 0.8.0 (2023-12-08)
+
+### Feat
+
+- **openapi**: add spec for endpoint and command to generate the spec
+
+### Refactor
+
+- rename method
+
 ## 0.7.0 (2023-11-22)
 
 ### Feat
