@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Freepik API
+  description: Freepik API
+  version: 1.0.0
+
+servers:
+  - url: https://api.freepik.com
+    description: B2B API Production V1
+
+#components:
+#  securitySchemes:
+#    apiKey:
+#      $ref: './common/schemas.yaml#/securitySchemes/apiKey'
+
+security:
+  - apiKey: []
+
+paths:
+  # Releases
+  /v1/releases:
+    $ref: './releases/v1-releases-openapi.yml#/paths/~1releases'
+  /v1/releases/{release-id}:
+    $ref: './releases/v1-releases-openapi.yml#/paths/~1releases~1id'

@@ -1,0 +1,21 @@
+responses:
+  404-not-found-for-search:
+    description: Not Found
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: No releases found
+  404-not-found-for-release:
+    description: Not Found
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Release not found

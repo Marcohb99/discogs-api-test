@@ -1,0 +1,10 @@
+path:
+  release-id:
+    name: id
+    in: path
+    description: "Release ID"
+    schema:
+      type: integer
+      minimum: 1
+    example: 30955
+    required: true

@@ -1,0 +1,274 @@
+releases:
+  artist_release:
+    type: object
+    required:
+      - anv
+      - id
+      - join
+      - name
+      - resource_url
+      - role
+      - tracks
+  contributor_list:
+    type: array
+    items:
+      $ref: '#/releases/contributor'
+  contributor:
+    type: object
+    required:
+      - resource_url
+      - username
+    example:
+      resource_url: https://api.discogs.com/users/Sharp4
+      username: Sharp4
+  community_data:
+    type: object
+    required:
+      - contributors
+      - data_quality
+      - have
+      - rating
+      - status
+      - submitter
+      - want
+    properties:
+      contributors:
+        $ref: '#/releases/contributor_list'
+      data_quality:
+        type: string
+      have:
+        type: integer
+      rating:
+        type: object
+        properties:
+          average:
+            type: number
+          count:
+            type: integer
+      status:
+        type: enum
+        enum:
+          - Accepted
+          - Corrected
+          - Deleted
+          - Draft
+          - Needs Minor Changes
+          - Needs Review
+          - New
+          - Pending
+          - Rejected
+          - Submitted
+      submitter:
+        $ref: '#/releases/contributor'
+      want:
+        type: integer
+  release_format:
+    type: object
+    required:
+      - descriptions
+      - name
+      - qty
+    properties:
+      descriptions:
+        type: array
+        items:
+          type: string
+      name:
+        type: string
+      qty:
+        type: string
+    example:
+      descriptions:
+        - Album
+        - Stereo
+      name: CD
+      qty: '1'
+  release_identifier:
+    type: object
+    required:
+      - description
+      - type
+      - value
+    properties:
+      description:
+        type: string
+      type:
+        type: string
+      value:
+        type: string
+    example:
+        description: Cd BarCode
+        type: Barcode
+        value: '8435307616838'
+  release_image:
+    type: object
+    required:
+      - height
+      - resource_url
+      - type
+      - uri
+      - uri150
+      - width
+    properties:
+      height:
+        type: integer
+      resource_url:
+        type: string
+      type:
+        type: enum
+        enum:
+          - primary
+          - secondary
+      uri:
+        type: string
+      uri150:
+        type: string
+      width:
+        type: integer
+  release_label:
+    type: object
+    required:
+      - catno
+      - entity_type
+      - entity_type_name
+      - id
+      - name
+      - resource_url
+    properties:
+      catno:
+        type: string
+      entity_type:
+        type: string
+      entity_type_name:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      resource_url:
+        type: string
+  release_track:
+    type: object
+    required:
+      - duration
+      - position
+      - title
+      - type
+    properties:
+      duration:
+        type: string
+      extraartists:
+        type: array
+        items:
+          $ref: '#/releases/artist_release'
+      position:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+  release:
+    type: object
+    required:
+        - artists
+        - artists_sort
+        - blocked_from_sale
+        - community
+        - companies
+    properties:
+      artists:
+        - $ref: '#/releases/artist_release'
+    artists_sort:
+      type: string
+    blocked_from_sale:
+      type: boolean
+    community:
+      $ref: '#/releases/community_data'
+    companies: [ ]
+    country: Spain
+    data_quality: Needs Vote
+    date_added:
+      type: string
+      format: date-time
+    date_changed:
+      type: string
+      format: date-time
+    estimated_weight:
+      type: integer
+    extraartists:
+      type: array
+      items:
+        $ref: '#/releases/artist_release'
+    format_quantity:
+      type: integer
+      minimum: 1
+    formats:
+      type: array
+      items:
+        $ref: '#/releases/release_format'
+    genres:
+      type: array
+      items:
+        type: string
+    id:
+      type: integer
+    identifiers:
+      type: array
+      items:
+        $ref: '#/releases/release_identifier'
+    images:
+      type: array
+      items:
+        $ref: '#/releases/release_image'
+    labels:
+      type: array
+      items:
+        $ref: '#/releases/release_label'
+    lowest_price:
+      type: number
+    num_for_sale:
+      type: integer
+    released:
+      type: string
+      format: date
+    resource_url:
+      type: string
+      format: uri
+    series:
+      type: array
+      items:
+        type: string
+    status:
+      type: enum
+      enum:
+        - Accepted
+        - Corrected
+        - Deleted
+        - Draft
+        - Needs Minor Changes
+        - Needs Review
+        - New
+        - Pending
+        - Rejected
+        - Submitted
+    styles:
+      type: array
+      items:
+        type: string
+    thumb:
+      type: string
+      format: uri
+    title:
+      type: string
+      minLength: 1
+    tracklist:
+      type: array
+      items:
+        $ref: '#/releases/release_track'
+    uri:
+      type: string
+      format: uri
+    year:
+      type: integer
+      minimum: 1
+

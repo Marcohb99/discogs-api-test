@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: Videos API
+  version: 1.0.0
+
+tags:
+  - name: Videos
+
+paths:
+  /releases:
+    get:
+      tags:
+        - Releases
+      summary: List Releases
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: './schemas.yml#/releases/release'
+              examples:
+                all_elements_with_pagination:
+                  $ref: '../examples/releases/200-full-list-pagination.yml'
+        '404':
+          $ref: '../examples/releases/404-not-found.yml#/responses/404-not-found-for-search'
+          
+  /releases/id:
+    get:
+      tags:
+        - Videos
+      summary: GET Video Detail
+      parameters:
+        - $ref: '../common/parameters.yml#/path/release-id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: './schemas.yml#/releases/release'
+        '404':
+          $ref: '../examples/releases/404-not-found.yml#/responses/404-not-found-for-release'

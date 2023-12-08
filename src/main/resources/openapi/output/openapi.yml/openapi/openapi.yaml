@@ -1,0 +1,327 @@
+openapi: 3.0.0
+info:
+  description: Freepik API
+  title: Freepik API
+  version: 1.0.0
+servers:
+- description: B2B API Production V1
+  url: https://api.freepik.com
+security:
+- apiKey: []
+paths:
+  /v1/releases:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                all_elements_with_pagination:
+                  $ref: '#/components/examples/200-full-list-pagination'
+              schema:
+                $ref: '#/components/schemas/_v1_releases_get_200_response'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                example: application/json
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_releases_get_404_response'
+          description: Not Found
+      summary: List Releases
+      tags:
+      - Releases
+  /v1/releases/{release-id}:
+    get:
+      parameters:
+      - description: Release ID
+        example: 30955
+        in: path
+        name: id
+        required: true
+        schema:
+          minimum: 1
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/release'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_v1_releases__release_id__get_404_response'
+          description: Not Found
+      summary: GET Video Detail
+      tags:
+      - Videos
+components:
+  examples:
+    "200-full-list-pagination":
+      summary: List of releases
+      value:
+      - artists:
+        - anv: John Doe
+          id: 123
+          join: '&'
+          name: John Doe
+          resource_url: https://api.discogs.com/artists/123
+          role: Main
+          tracks: 10
+        artists_sort: "Doe, John"
+        blocked_from_sale: false
+        community:
+          contributors:
+          - resource_url: https://api.discogs.com/users/Sharp4
+            username: Sharp4
+          data_quality: High
+          have: 100
+          rating:
+            average: 4.5
+            count: 50
+          status: Accepted
+          submitter:
+            resource_url: https://api.discogs.com/users/Sharp4
+            username: Sharp4
+          want: 20
+        companies: []
+        country: United States
+        data_quality: Needs Vote
+        date_added: 2023-12-08T12:00:00Z
+        date_changed: 2023-12-08T15:30:00Z
+        estimated_weight: 300
+        extraartists:
+        - anv: Jane Smith
+          id: 456
+          join: '&'
+          name: Jane Smith
+          resource_url: https://api.discogs.com/artists/456
+          role: Featured
+          tracks: 5
+        format_quantity: 1
+        formats:
+        - descriptions:
+          - Album
+          - Stereo
+          name: CD
+          qty: "1"
+        genres:
+        - Rock
+        - Pop
+        id: 789
+        identifiers:
+        - description: Barcode
+          type: Barcode
+          value: "123456789"
+        images:
+        - height: 300
+          resource_url: https://example.com/image.jpg
+          type: primary
+          uri: image.jpg
+          uri150: image150.jpg
+          width: 400
+        labels:
+        - catno: ABC123
+          entity_type: Label
+          entity_type_name: XYZ Records
+          id: 101
+          name: XYZ Records
+          resource_url: https://api.discogs.com/labels/101
+        lowest_price: 10.99
+        num_for_sale: 50
+        released: 2022-01-01
+        resource_url: https://api.discogs.com/releases/789
+        series:
+        - Best Hits
+        status: Accepted
+        styles:
+        - Pop Rock
+        - Indie
+        thumb: https://example.com/thumb.jpg
+        title: Best Album Ever
+        tracklist:
+        - duration: 03:30
+          position: "1"
+          title: Intro
+          type: track
+        uri: https://example.com/releases/789
+        year: 2022
+      - artists:
+        - anv: Alice Johnson
+          id: 456
+          join: '&'
+          name: Alice Johnson
+          resource_url: https://api.discogs.com/artists/456
+          role: Main
+          tracks: 12
+        artists_sort: "Johnson, Alice"
+        blocked_from_sale: false
+        community:
+          contributors:
+          - resource_url: https://api.discogs.com/users/MusicLover
+            username: MusicLover
+          data_quality: Excellent
+          have: 150
+          rating:
+            average: 4.8
+            count: 80
+          status: Accepted
+          submitter:
+            resource_url: https://api.discogs.com/users/MusicLover
+            username: MusicLover
+          want: 10
+        companies: []
+        country: Canada
+        data_quality: Needs Vote
+        date_added: 2023-12-08T14:00:00Z
+        date_changed: 2023-12-08T16:45:00Z
+        estimated_weight: 350
+        extraartists:
+        - anv: Bob Smith
+          id: 789
+          join: '&'
+          name: Bob Smith
+          resource_url: https://api.discogs.com/artists/789
+          role: Featured
+          tracks: 8
+        format_quantity: 1
+        formats:
+        - descriptions:
+          - Album
+          - Vinyl
+          name: LP
+          qty: "1"
+        genres:
+        - Electronic
+        - Dance
+        id: 101
+        identifiers:
+        - description: UPC
+          type: UPC
+          value: "0987654321"
+        images:
+        - height: 400
+          resource_url: https://example.com/cover.jpg
+          type: primary
+          uri: cover.jpg
+          uri150: cover150.jpg
+          width: 400
+        labels:
+        - catno: XYZ789
+          entity_type: Label
+          entity_type_name: Groove Records
+          id: 202
+          name: Groove Records
+          resource_url: https://api.discogs.com/labels/202
+        lowest_price: 15.99
+        num_for_sale: 30
+        released: 2022-02-15
+        resource_url: https://api.discogs.com/releases/101
+        series:
+        - Essential Collection
+        status: Accepted
+        styles:
+        - Techno
+        - House
+        thumb: https://example.com/album-thumb.jpg
+        title: Electronic Vibes
+        tracklist:
+        - duration: 04:15
+          position: "1"
+          title: Intro
+          type: track
+        uri: https://example.com/releases/101
+        year: 2022
+      - artists:
+        - anv: Mia Rodriguez
+          id: 789
+          join: '&'
+          name: Mia Rodriguez
+          resource_url: https://api.discogs.com/artists/789
+          role: Main
+          tracks: 15
+        artists_sort: "Rodriguez, Mia"
+        blocked_from_sale: true
+        community:
+          contributors:
+          - resource_url: https://api.discogs.com/users/MusicFanatic
+            username: MusicFanatic
+          data_quality: Good
+          have: 80
+          rating:
+            average: 4.2
+            count: 40
+          status: Pending
+          submitter:
+            resource_url: https://api.discogs.com/users/MusicFanatic
+            username: MusicFanatic
+          want: 5
+        companies: []
+        country: Australia
+        data_quality: Needs Vote
+        date_added: 2023-12-08T16:00:00Z
+        date_changed: "2023"
+  parameters:
+    release-id:
+      description: Release ID
+      example: 30955
+      in: path
+      name: id
+      required: true
+      schema:
+        minimum: 1
+        type: integer
+  responses:
+    "404-not-found-for-search":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/_v1_releases_get_404_response'
+      description: Not Found
+    "404-not-found-for-release":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/_v1_releases__release_id__get_404_response'
+      description: Not Found
+  schemas:
+    release:
+      example: {}
+      properties: {}
+      required:
+      - artists
+      - artists_sort
+      - blocked_from_sale
+      - community
+      - companies
+      type: object
+    _v1_releases_get_200_response:
+      example:
+        items:
+        - {}
+        - {}
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/release'
+          type: array
+      type: object
+    _v1_releases_get_404_response:
+      properties:
+        message:
+          example: No releases found
+          type: string
+      type: object
+    _v1_releases__release_id__get_404_response:
+      properties:
+        message:
+          example: Release not found
+          type: string
+      type: object
