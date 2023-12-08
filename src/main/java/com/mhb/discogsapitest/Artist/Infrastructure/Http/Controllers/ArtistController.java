@@ -16,7 +16,7 @@ public class ArtistController {
     private GetArtistInfo getArtistInfo;
 
     @GetMapping("/artists/{id}")
-    public Artist getArtistReleases(@PathVariable Integer id) {
+    public Artist getArtist(@PathVariable Integer id) {
         return getArtistInfo.execute(id);
     }
 }

@@ -24,13 +24,16 @@ public class Album {
 
     private final Map<String, List<Credit>> credits;
 
+    private final AlbumType albumType;
+
     public Album(
             SequentialId id,
             NotEmptyString title,
             List<NotEmptyString> trackList,
             List<NotEmptyString> genres,
             List<BasicArtistInfo> artists,
-            Map<String, List<Credit>> credits
+            Map<String, List<Credit>> credits,
+            AlbumType albumType
     ) {
         this.id = id;
         this.title = title;
@@ -50,6 +53,7 @@ public class Album {
             throw InvalidAlbum.invalidCredits();
         };
         this.credits = credits;
+        this.albumType = albumType;
     }
 
     @Override
@@ -63,6 +67,7 @@ public class Album {
                 && trackList.equals(album.trackList)
                 && genres.equals(album.genres)
                 && artists.equals(album.artists)
-                && credits.equals(album.credits);
+                && credits.equals(album.credits)
+                && albumType.equals(album.albumType);
     }
 }

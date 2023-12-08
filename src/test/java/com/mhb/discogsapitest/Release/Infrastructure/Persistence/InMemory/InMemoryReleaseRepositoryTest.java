@@ -1,5 +1,6 @@
 package com.mhb.discogsapitest.Release.Infrastructure.Persistence.InMemory;
 
+import com.mhb.discogsapitest.Album.Domain.AlbumType;
 import com.mhb.discogsapitest.Artist.Domain.ValueObject.BasicArtistInfo;
 import com.mhb.discogsapitest.Album.Domain.Album;
 import com.mhb.discogsapitest.Release.Domain.Release;
@@ -55,7 +56,8 @@ public class InMemoryReleaseRepositoryTest {
                                 List.of(Credit.PHOTOGRAPHY_BY),
                                 "person_3",
                                 List.of(Credit.EXECUTIVE_PRODUCER)
-                        )
+                        ),
+                        AlbumType.ALBUM
                 ),
                 List.of(new NotEmptyString("format_1")),
                 null
@@ -64,6 +66,61 @@ public class InMemoryReleaseRepositoryTest {
 
         // when
         Release result = sut.byId(new SequentialId(1));
+
+        // then
+        assert result.equals(expected);
+    }
+
+    @Test
+    public void testByArtistId() {
+        // given
+        List<Release> expected = List.of(
+                new Release(
+                    new SequentialId(1),
+                    new BarCode("1234567890123"),
+                    new Date(1234567890L),
+                    new NotEmptyString("label_1"),
+                    new NotEmptyString("country_1"),
+                    new Album(
+                            new SequentialId(1),
+                            new NotEmptyString("title_1"),
+                            List.of(
+                                    new NotEmptyString("track_1"),
+                                    new NotEmptyString("track_2"),
+                                    new NotEmptyString("track_3")
+                            ),
+                            List.of(
+                                    new NotEmptyString("genre_1"),
+                                    new NotEmptyString("genre_2"),
+                                    new NotEmptyString("genre_3")
+                            ),
+                            List.of(
+                                    new BasicArtistInfo(
+                                            new SequentialId(1),
+                                            new NotEmptyString("artist_1")
+                                    )
+                            ),
+                            Map.of(
+                                    "person_1",
+                                    List.of(
+                                            Credit.LYRICS_BY,
+                                            Credit.MUSIC_BY
+                                    ),
+                                    "person_2",
+                                    List.of(Credit.PHOTOGRAPHY_BY),
+                                    "person_3",
+                                    List.of(Credit.EXECUTIVE_PRODUCER)
+                            ),
+                            AlbumType.ALBUM
+                    ),
+                    List.of(new NotEmptyString("format_1")),
+                    null
+            )
+        );
+        InMemoryReleaseRepository sut = new InMemoryReleaseRepository();
+
+        // when
+        List<Release> result = sut.byArtistId(new SequentialId(1));
 
         // then
         assert result.equals(expected);
@@ -109,7 +166,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_1")),
                         null
@@ -149,7 +207,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_3")),
                         "catalog_number_3"
@@ -203,7 +262,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_1")),
                         null
@@ -243,7 +303,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_2")),
                         "catalog_number_2"
@@ -283,7 +344,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_3")),
                         "catalog_number_3"
@@ -323,7 +385,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_4")),
                         "catalog_number_4"
@@ -363,7 +426,8 @@ public class InMemoryReleaseRepositoryTest {
                                         List.of(Credit.PHOTOGRAPHY_BY),
                                         "person_3",
                                         List.of(Credit.EXECUTIVE_PRODUCER)
-                                )
+                                ),
+                                AlbumType.ALBUM
                         ),
                         List.of(new NotEmptyString("format_5")),
                         "catalog_number_5"

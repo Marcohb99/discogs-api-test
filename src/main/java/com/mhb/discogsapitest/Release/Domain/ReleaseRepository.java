@@ -11,4 +11,6 @@ public interface ReleaseRepository {
     List<Release> all();
 
     List<Release> byBarCode(BarCode barCode);
+
+    List<Release> byArtistId(SequentialId artistId);
 }

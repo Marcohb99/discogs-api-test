@@ -7,12 +7,13 @@ import com.mhb.discogsapitest.Release.Domain.ValueObject.Credit;
 import com.mhb.discogsapitest.Shared.Domain.NotEmptyString;
 import com.mhb.discogsapitest.Shared.Domain.SequentialId;
 import io.micrometer.common.lang.Nullable;
-import lombok.EqualsAndHashCode;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.util.*;
 
 @Getter
+@Builder
 public class Release {
     private final SequentialId id;
 
